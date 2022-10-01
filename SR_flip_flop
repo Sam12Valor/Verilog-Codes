@@ -17,3 +17,29 @@ always@(negedge clk)
 				$display("Not Determined");
 	end
 endmodule
+
+
+
+/////Test Bench////////
+
+module srff_tb();
+reg s,r,clk,reset;
+wire q;
+srff sff(s,r,reset,clk,q);
+initial
+	begin
+		clk =0;
+#50 $stop;
+	end
+always
+	begin
+	#5 clk = ~clk;
+	end
+initial
+	begin
+		reset=0; s=0; r=0;
+#10	reset=1; s=0;r=1;
+#10	reset=1; s=1;r=1;
+#10	reset=1; s=0;r=0;
+	end
+endmodule
