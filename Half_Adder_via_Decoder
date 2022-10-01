@@ -1,0 +1,7 @@
+module half_adder_using_decoder(a,b,sum,carry);
+input a,b;
+output sum,carry;
+wire w1,w2;
+decoder24 d1(a,b, ,w1,w2,carry);
+or d2(sum,w1,w2);
+endmodule
