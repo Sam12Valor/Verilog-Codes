@@ -15,3 +15,28 @@ always@(negedge clk)
 				q = j;
 	end
 endmodule
+
+
+/////Test Bench////////
+
+module jkff_tb();
+reg j,k,clk,reset;
+wire q;
+jkff jff(j,k,reset,clk,q);
+initial
+	begin
+		clk =0;
+#50 $stop;
+	end
+always
+	begin
+	#5 clk = ~clk;
+	end
+initial
+	begin
+		reset=0; j=0; k=0;
+#10	reset=1; j=0;k=1;
+#10	reset=1; j=1;k=1;
+#10	reset=1; j=0;k=0;
+	end
+endmodule
