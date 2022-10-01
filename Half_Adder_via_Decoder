@@ -1,7 +1,25 @@
-module half_adder_using_decoder(a,b,sum,carry);
+module half_adder_using_decoder(a,b,s,c);
 input a,b;
-output sum,carry;
+output s,c;
 wire w1,w2;
-decoder24 d1(a,b, ,w1,w2,carry);
-or d2(sum,w1,w2);
+decoder24 d1(a,b, ,w1,w2,c);
+or d2(s,w1,w2);
+endmodule
+
+
+/////////////////////////////////////////Test Bench //////////////////////////////
+
+module half_adder_using_decoder_tb();
+reg a,b;
+wire s,c;
+half_adder_using_decoder hf1(a,b,s,c);
+initial
+	begin
+		a=0;b=0;
+	#5 a=0;b=1;
+	#5 a=1;b=0;
+	#5 a=1;b=1;
+	#5
+$stop;
+end
 endmodule
