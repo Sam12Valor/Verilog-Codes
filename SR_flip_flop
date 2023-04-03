@@ -15,10 +15,10 @@ always@(negedge clk)
 				q=1;
 			else 
 				$display("Not Determined");
-	end
-endmodule
 
 
+				end
+				endmodule
 
 /////Test Bench////////
 
@@ -42,4 +42,4 @@ initial
 #20	reset=1; s=1;r=1;
 #20	reset=1; s=0;r=0;
 	end
-endmodule
+	endmodule
